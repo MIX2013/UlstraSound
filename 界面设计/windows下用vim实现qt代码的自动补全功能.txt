@@ -1,0 +1,47 @@
+windows下用vim实现qt代码的自动补全功能 
+1.安装vim.
+2.下载ctags for win32并解压到c:\ctags\目录下;
+3.将c:\ctags加入windows的path环境变量中;
+4.下载omnicppcomplete将解压到vim安装目录的vimfiles目录下;
+5.转到qt的include目录下执行ctags -R --c++-kinds=+p --fields=+iaS --extra=+q;命令完成后会在该目录下
+生成一个tags文件，它是omnicppcomplete和vim用来作命令补全的数据库。
+6.在qt的src目录下再执行一遍上述命令;
+7.编辑vim安装目录下的_vimrc文件，将下述两行加入其中
+set tags+=c:\Qt\4.3.3\include\tags
+set tags+=c:\Qt\4.3.3\src\tag
+其中c:\Qt\4.3.3\是我机器上qt 的安装目录，根据你的情况作出调整。
+8.到你的工程目录下执行5步中的命令;
+9.用vim打开一个cpp文件试一下吧，哈哈;
+
+
+windows下vim配置以及插件的安装2010-03-07 17:30vim被称为神之编辑器，的确，vim的功能的确很强大，编程也可以得心应手，vim让我用了之后就喜欢上它了。
+最近重装了系统，所以vim又得重新配置一道。为了防止以后忘记，记录在这里我的配置过程。
+安装完vim之后，如果像我一样英语能力不是很强的话，那么还是老老实实装上中文帮助手册（vimcdoc-1.7.0-setup.exe）吧。进行到这里的时候，打开vim在菜单栏处的中文会显示成乱码，我的办法是将vim72下名为lang的文件夹删去，这样菜单栏语言变为英语，其实还有的办法就是把文字的编码设置为GB2312的也可以吧。
+
+vim插件的安装
+其实vim插件的安装很简单，只需在网上把插件下下来，放在指定的文件夹中，然后修改一下_vimrc文件的内容就可以了。
+窗口管理： taglist_45.zip 解压后包含一个doc文件夹和一个plugin文件夹，将其中内容分别复制到C:\Program Files\Vim\vim72下的doc及plugin中。在_vimrc文件中加入以下内容：
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
+目录管理： winmanager.zip 解压后包含一个doc文件夹和一个plugin文件夹，将其中内容分别复制到C:\Program Files\Vim\vim72下的doc及plugin中。在_vimrc文件中加入以下内容：
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+
+多文件编辑：minibufexpl.vim 将minibufexpl.vim复制到C:\Program Files\Vim\vim72\plugin，在_vimrc中添加：
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplMapWindowsNavVim=1
+let g:miniBufExplMapWindowNavArrows=1
+
+快速切换头文件/源文件： a.vim 将a.vim复制到C:\Program Files\Vim\vim72\plugin，在_vimrc中添加：
+nnoremap <silent> <F12> :A<CR>
+
+在工程中快速查找： grep.vim 将grep.vim复制到C:\Program Files\Vim\vim72\plugin，在_vimrc中添加：
+nnoremap <silent> <F3> :Grep<CR>
+
+高亮的书签： visualmark.vim 将visualmark.vim复制到C:\Program Files\Vim\vim72\plugin。
+
+c与c++编程： c.vim 将cvim.zip解压到Vim\vimfiles中。
+ 
+
+
