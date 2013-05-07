@@ -107,9 +107,8 @@ Widget::Widget(QWidget* parent)
 
     setWindowTitle(tr("超声乳腺系统"));
     setLayout(mainLayout);
-    //setMinimumSize(800,600);//设置窗口最小尺寸为800*600
-   //setFixedSize(800,600);
-    // resize(1024,768);//设置初始化尺寸
+    setMinimumSize(800,600);//设置窗口最小尺寸为800*600
+    resize(1024,768);//设置初始化尺寸
 
     connect(loadButton,SIGNAL(clicked()),this,SLOT(loadImageFile()));
 
@@ -120,18 +119,16 @@ void  Widget::loadImageFile()
 {
 	 fileName=QFileDialog::getOpenFileName(this,tr("打开文件"),
 			"",tr("Image(*.png *.jpg *.bmp)"));
-     QPixmap img(fileName);
-     img=img.scaled(origanlImageLabel->size());
-     if(!fileName.isEmpty () )
-         origanlImageLabel->setPixmap(img);
-    // update();
+	update();
 }
 
-//void Widget::paintEvent(QPaintEvent* event)
-//{
-  //  QPainter painter(this);
-
-//}
+void Widget::paintEvent(QPaintEvent* event)
+{
+    QPainter painter(this);
+    QPixmap img(fileName);
+    if(!fileName.isEmpty () )
+        origanlImageLabel->setPixmap(img);
+}
 
 
 
