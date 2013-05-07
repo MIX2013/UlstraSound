@@ -15,10 +15,9 @@ MainWindow::MainWindow(QWidget* parent)
 	createActions();	
 	createMenu();
     //createBackWard();
-	setWindowTitle("MIX");
-	//setMinimumSize(QSize(600,800));
-	//setMaximumSize(QSize(1024,768));
-	resize(1024,768);
+    setWindowTitle("MIX");
+    setFixedSize(1024,768);
+
 }
 
 void MainWindow::createActions()

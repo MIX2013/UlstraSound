@@ -14,7 +14,7 @@ public:
 	Widget(QWidget* parent=0);
 signals:
 protected:
-   void paintEvent(QPaintEvent* event);
+//   void paintEvent(QPaintEvent* event);
 private slots:
     void loadImageFile();
 private:
