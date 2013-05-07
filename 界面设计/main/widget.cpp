@@ -29,7 +29,7 @@ Widget::Widget(QWidget* parent)
 	//左下角上部
     inputWordLabel=new QLabel;
 	inputWordLabel->setText(tr("输入：X 输出: X"));
-
+	
 	describeMapComboBoxLabel=new QLabel;
 	describeMapComboBoxLabel->setText(tr("图谱选择"));
 
@@ -43,12 +43,16 @@ Widget::Widget(QWidget* parent)
 	imageGroupBox->setTitle("图像框");
 	origanlImageLabel=new QLabel;
 	origanlImageLabel->setText("图一");
+	origanlImageLabel->setFrameStyle(2);
 	secondImageLabel=new QLabel;
+	secondImageLabel->setFrameStyle(2);
 	secondImageLabel->setText("图二");
 	thirdImageLabel=new QLabel;
 	thirdImageLabel->setText("图三");
+	thirdImageLabel->setFrameStyle(2);
 	fourthImageLabel=new QLabel;
-    fourthImageLabel->setText("图四");
+	fourthImageLabel->setText("图四");
+	fourthImageLabel->setFrameStyle(2);
 	
 
 	//载入框在右边
