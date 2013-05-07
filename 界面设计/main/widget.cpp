@@ -18,6 +18,7 @@ Widget::Widget(QWidget* parent)
 	//GroupBox
 	styleGroupBox=new QGroupBox;
 	styleGroupBox->setTitle(tr("Í¼Æ×ÀàÐÍ"));
+	styleGroupBox->setStyleSheet (QString ("QGroupBox:title { color: blue;  }"));
 	bRadioButton=new QRadioButton;
 	bRadioButton->setText(tr("B"));
 	mRadioButton=new QRadioButton;
@@ -30,6 +31,7 @@ Widget::Widget(QWidget* parent)
     inputWordLabel=new QLabel;
 	inputWordLabel->setText(tr("ÊäÈë£ºX Êä³ö: X"));
 	
+
 	describeMapComboBoxLabel=new QLabel;
 	describeMapComboBoxLabel->setText(tr("Í¼Æ×Ñ¡Ôñ"));
 
@@ -41,6 +43,7 @@ Widget::Widget(QWidget* parent)
 
 	imageGroupBox=new QGroupBox;
 	imageGroupBox->setTitle("Í¼Ïñ¿ò");
+	imageGroupBox->setStyleSheet(QString("QGroupBox::title{color:blue;}"));
 	origanlImageLabel=new QLabel;
 	origanlImageLabel->setText("Í¼Ò»");
 	origanlImageLabel->setFrameStyle(2);
@@ -120,7 +123,8 @@ void Widget::paintEvent(QPaintEvent* event)
 {
     QPainter painter(this);
     QPixmap img(fileName);
-    origanlImageLabel->setPixmap(img);
+    if(!fileName.isEmpty () )
+        origanlImageLabel->setPixmap(img);
 }
 
 
