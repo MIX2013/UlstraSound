@@ -46,17 +46,20 @@ Widget::Widget(QWidget* parent)
 	imageGroupBox->setStyleSheet(QString("QGroupBox::title{color:blue;}"));
 	origanlImageLabel=new QLabel;
 	origanlImageLabel->setText("图一");
+    origanlImageLabel->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 	origanlImageLabel->setFrameStyle(2);
 	secondImageLabel=new QLabel;
 	secondImageLabel->setFrameStyle(2);
 	secondImageLabel->setText("图二");
-	thirdImageLabel=new QLabel;
+    secondImageLabel->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+    thirdImageLabel=new QLabel;
 	thirdImageLabel->setText("图三");
 	thirdImageLabel->setFrameStyle(2);
+    thirdImageLabel->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 	fourthImageLabel=new QLabel;
 	fourthImageLabel->setText("图四");
 	fourthImageLabel->setFrameStyle(2);
-	
+    fourthImageLabel->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
 
 	//载入框在右边
 	loadButton=new QPushButton;
